@@ -11,7 +11,7 @@ Os cenários de testes do arquivo `features/intelipost.feature` foram agrupados 
   - testes positivos - Destino Pará - 20 dias na estimativa
   - testes negativos - Canais CN1 e CN2 e origem no TO e destino na região sudeste
 
-A maior dificuldade da automação foi em como organizar os cenários e definir a quantidade de testes realizados. Quando buscamos grande cobertura
+A maior dificuldade da automação foi em como organizar os cenários e definir a quantidade de testes realizados.
 
 ### Execução
 
