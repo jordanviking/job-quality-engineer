@@ -1,0 +1,12 @@
+ testDescription;origin_zip_code;destination_zip_code;sku_id;sales_channel;responseCode;status;messageKey
+ Canal CN1;4012080;4304011;SKU456;CN1;400;ERROR;quote.no.delivery.options
+ Canal CN2;4012080;4304011;SKU456;CN2;400;ERROR;quote.no.delivery.options
+ CEP Pará - Canal CN1;4012080;66010000;SKU123;CN1;400;ERROR;quote.no.delivery.options
+ Origem TO e destino interior SP;77890000;18530000;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Origem TO e destinoSP;77890000;4013003;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Palmas (TO) - RJ interior;77001026;28999098;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Interior tocantinense - RJ;77300000;23799899;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Palmas (TO) - MG interior;77001026;35001970;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Interior tocantinense - MG;77300000;31873155;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Palmas (TO) - ES interior;77001026;29100000;SKU456;CN200;400;ERROR;quote.no.delivery.options
+ Interior tocantinense - ES;77300000;29092150;SKU456;CN200;400;ERROR;quote.no.delivery.options

@@ -24,7 +24,7 @@ Background:
 		      "height": 17.5,
 		      "length": 15,
 		      "quantity": 1,
-		      "sku_id": "SKU123",
+		      "sku_id": "<sku_id>",
 		      "product_category": "Bebidas"
 		    },
 		    {
@@ -80,7 +80,7 @@ Background:
 		      "height": 17.5,
 		      "length": 15,
 		      "quantity": 1,
-		      "sku_id": "SKU123",
+		      "sku_id": "<sku_id>",
 		      "product_category": "Bebidas"
 		    },
 		    {
@@ -138,7 +138,7 @@ Scenario Outline: POST - quote_by_product - testes positivos - <testDescription>
 		      "height": 17.5,
 		      "length": 15,
 		      "quantity": 1,
-		      "sku_id": "SKU123",
+		      "sku_id": "<sku_id>",
 		      "product_category": "Bebidas"
 		    },
 		    {
@@ -194,7 +194,7 @@ Scenario Outline: POST - quote_by_product - testes positivos - <testDescription>
 		      "height": 17.5,
 		      "length": 15,
 		      "quantity": 1,
-		      "sku_id": "SKU123",
+		      "sku_id": "<sku_id>",
 		      "product_category": "Bebidas"
 		    },
 		    {

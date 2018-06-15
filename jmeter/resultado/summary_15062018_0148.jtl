@@ -1,0 +1,11 @@
+1529038104328,162,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,162
+1529038104492,29,api/v1/quote_by_product,200,OK,Thread Group 1-1,text,false,2637,1,1,29
+1529038104522,18,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,18
+1529038104541,27,api/v1/quote_by_product,200,OK,Thread Group 1-1,text,false,3129,1,1,27
+1529038104568,22,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,22
+1529038104591,24,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,23
+1529038104615,27,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,27
+1529038104643,21,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,21
+1529038104665,28,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,28
+1529038104694,23,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,23
+1529038104718,21,api/v1/quote_by_product,400,Bad Request,Thread Group 1-1,text,true,561,1,1,21

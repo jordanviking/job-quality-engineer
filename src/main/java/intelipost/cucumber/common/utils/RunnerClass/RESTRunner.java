@@ -10,7 +10,7 @@ public class RESTRunner  {
 
 	public static void main(String[] args) {
 		String reportDirName = "execution";
-		String reportDir = PropertiesUtil.getProperty("report.path") + "/" + reportDirName + "/";
+		String reportDir = PropertiesUtil.getProperty("report.path") + "/";
 		
 		ReportJson.clearReportDir(reportDir);
 		
