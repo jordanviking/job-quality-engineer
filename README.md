@@ -1,55 +1,54 @@
 # Intelipost: Teste prático para analista de qualidade e testes
 
-Este é o teste usado por nós aqui da Intelipost para avaliar tecnicamente os candidatos a nossas vagas de analista de testes. Se você estiver participando de um processo seletivo para nossa equipe, certamente em algum momento receberá este link, mas caso você tenha chego aqui "por acaso", sinta-se convidado a desenvolver nosso teste e enviar uma mensagem para nós nos e-mails `stefan.rehm@intelipost.com.br` e `gustavo.hideyuki@intelipost.com.br`.
+Para a crição da automação dos testes no formato BDD, escolhemos o Cucumber e a sintaxe Gherkin por ser muito utilizado na área de testes.
+Foi utilizado o maven para facilitar a compilação e gestão das bibliotecas externas e dependências do projeto.
 
-Aqui na Intelipost nós aplicamos este mesmo teste para as vagas em todos os níveis, ou seja, um candidato a uma vaga de analista de testes junior fará o mesmo teste de um outro candidato a uma vaga sênior, mudando obviamente o nosso critério de avaliação do resultado do teste.
+Os steps foram criados de forma genérica visando sua reutilização, pois pode ser reutilizado no testes de outras APIs JSON sem grandes alterações em seu código.
 
-Nós fazemos isso esperando que as pessoas mais iniciantes entendam qual o modelo de profissional que temos por aqui e que buscamos para o nosso time. Portanto, se você estiver se candidatando a uma vaga mais iniciante, não se assuste, e faça o melhor que você puder!
+Os cenários de testes do arquivo `features/intelipost.feature` foram agrupados da seguinte forma, onde possuem a mesma validação dentro dos "Scenarios Outlines" do Cucumber.
+  - testes positivos gerais
+  - testes positivos - Retornos sem "Correios PAC"
+  - testes positivos - Destino Pará - 20 dias na estimativa
+  - testes negativos - Canais CN1 e CN2 e origem no TO e destino na região sudeste
 
-## Instruções
+A maior dificuldade da automação foi em como organizar os cenários e definir a quantidade de testes realizados. Quando buscamos grande cobertura
 
-Você deverá criar um fork deste projeto, e desenvolver em cima do seu fork. Use o `README` principal do seu repositório para nos contar como foi resolver seu teste, as decisões tomadas, como você organizou e separou seus testes, e principalmente as instruções de como rodar seu projeto, afinal a primeira pessoa que irá rodar seu projeto será um programador de nossa equipe, e se você conseguir explicar para ele como fazer isso, você já começou bem!
+### Execução
 
-Lembre-se que este é um teste técnico e não um concurso público, portanto, não existe apenas uma resposta correta. Mostre que você é bom e nos impressione, mas não esqueça do objetivo do projeto. Nós não definimos um tempo limite para resolução deste teste, o que vale para nós e o resultado final e a evolução da criação do projeto até se atingir este resultado.
+- Antes da execução é preciso configurar o arquivo .properties:
+ ```sh
+ src\main\resources\cucumber.properties
+ ```
+ Nele temos a configuração do endereço base da api testada, o caminho de onde se encontram os arquivos .feature, quais tags do cucumber queremos utilizar e onde o relatório HTML será gerado.
 
-## O desafio
 
-Você será o responsável pelo desenvolvimento dos testes automatizados da nossa API de cotação a fim de cobrir alguns requisitos da `Loja Intelipost` (loja fictícia), temos uma documentação publica (https://docs.intelipost.com.br/v1/cotacao) para que voce consiga entender como vai realizar as requisições. Use esta documentação para ler sobre os parâmetros de entrada e saída, afinal serão importantíssimos para a validação dos seus testes. Nessa fase voce automatizará as cotações de frete por produto descritas no link https://docs.intelipost.com.br/v1/cotacao/criar-cotacao-por-produto .
+- É possível executar o projeto em uma IDE importanto o projeto e executando o método main da classe RESTRunner.java no caminho abaixo:
+```sh
+src\main\java\intelipost\cucumber\common\utils\RunnerClass\RESTRunner.java
+```
 
-Para as requisições que você for fazer na API, utilize a api key **4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379**
+- Também é possível executar em um terminal (linux ou windows) com os seguintes comandos:
+```sh
+$ mvn clean install
+$ cd target
+$ java -jar target/cucumber-runner-1.0.0.0.jar
+```
+Após a execução um relatório em .json e outro em HTML serão gerados na pasta `executionReports`:
+```sh
+executionReports/execution.json
+executionReports/cucumber-html-reports/overview-features.html
+```
+O caminho completo do relatório HTML aparecerá no final do log da execução.
 
- ## Para conhecimento
 
-A `Loja Intelipost` possui diversos canais de vendas, recebendo milhares de cotações de frete em todo o País. Para garantir que o cliente receba sua encomenda rapidamente, a Loja Intelipost possui quatro endereços de origem:
+A orgranização do projeto
+A pasta `jmeter` contém o script `quote_by_product.csv.jmx` e a massa de dados `quote_by_product.csv` relativas ao cenário `testes negativos - Canais CN1 e CN2 e origem no TO e destino na região sudeste`.
 
-| Origem | Estado | CEP |
-| ------------- | ------------- | ------------- |
-| Origem 1  | Espirito Santo  | 29010-120 |
-| Origem 2  | Tocantins  | 77001-054 |
-| Origem 3  | Mato Grosso  | 78005-170 |
-| Origem 4  | Rio Grande do Sul  | 94090-720 |
+O proejto java possui o pacote commom.utils, que contem a classe principal para a execução do projeto (`RestRunner.java`) e também alguns utilitários para realziação dos requests HTTP (`HttpClient.java` e `RestApi.java`), classe para ler o arquivo .properties (`PropertiesUtil.java`) e a classe para gerar o relatório HTML (`ReposrtJson.java`).
 
-## Cobertura dos testes
+Dentre as bibliotecas utilizadas, podemos destacar:
+- org.json para validação da resposta json;
+- org.apache.httpcomponents httpclient e commons-httpclient para a criação das classes para requisições HTTP;
+- bibliotecas do Cucumber para criar os testes na sintaxe Gherkin;
+- e a cucumber-reporting, plugin do jenkins utilizado para a criação do relatório de execução.
 
-* A Loja Intelipost deixou de atuar nos canais de vendas **CN1** e **CN2**, portanto se houver uma requisição oriunda dos canais de vendas (_sales_channel_) **CN1** ou **CN2**, é esperado que não haja opções de entrega no resultado da cotação.
-
-* A Loja Intelipost espera que não haja opções de entrega caso, na cotação de frete, o cep de origem seja de **Tocantins** e o cep de destino esteja localizado na **Região Sudeste** do País.
-
-* O canal de vendas **CN123**, não deve disponibilizar a opção de entrega **Correios PAC** caso o cep de destino esteja entre as faixas de cep _22710-010_ e _22710-990_.
-
-* Todas as cotações de frete, independente do canal de vendas, cujo o destino seja o estado do **Pará**, o prazo de entrega esperado é de 20 dias.
-
-* Cotações cujo o SKU (identificador) do produto seja **SKU123** não deve disponibilizar a opção de entrega **Correios PAC**.
-
-Com as informações acima, sua atividade será a criação de um conjunto de testes a fim de garantir que tais situações estão ocorrendo conforme o esperado.
-
-### O que nós esperamos do seu teste:
-
-* Possua um bom nível de cobertura
-* Seja feito o uso de BDD
-* Possua clareza na escrita dos testes
-* Possua um report simples onde possamos entender as possíveis falhas ocorridas na execução dos testes
-* Seja produzido em _Java_ (Java 8 de preferência)
-* Possua informações para que possamos entender o que e como foi desenvolvido
-* Possua informações de como executar os testes
-* Escolha ao menos um dos seus testes e crie-o utilizando Jmeter
