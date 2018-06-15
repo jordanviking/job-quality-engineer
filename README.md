@@ -39,12 +39,13 @@ executionReports/execution.json
 executionReports/cucumber-html-reports/overview-features.html
 ```
 O caminho completo do relatório HTML aparecerá no final do log da execução.
+Um relatorio de exemplo da execução está no projeto na pasta indicada acima.
 
 
 A orgranização do projeto
 A pasta `jmeter` contém o script `quote_by_product.csv.jmx` e a massa de dados `quote_by_product.csv` relativas ao cenário `testes negativos - Canais CN1 e CN2 e origem no TO e destino na região sudeste`.
 
-O proejto java possui o pacote commom.utils, que contem a classe principal para a execução do projeto (`RestRunner.java`) e também alguns utilitários para realziação dos requests HTTP (`HttpClient.java` e `RestApi.java`), classe para ler o arquivo .properties (`PropertiesUtil.java`) e a classe para gerar o relatório HTML (`ReposrtJson.java`).
+O projeto java possui o pacote commom.utils, que contem a classe principal para a execução do projeto (`RestRunner.java`) e também alguns utilitários para realziação dos requests HTTP (`HttpClient.java` e `RestApi.java`), classe para ler o arquivo .properties (`PropertiesUtil.java`) e a classe para gerar o relatório HTML (`ReposrtJson.java`).
 
 Dentre as bibliotecas utilizadas, podemos destacar:
 - org.json para validação da resposta json;
